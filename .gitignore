@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Dataset (download it yourself, see README) and generated splits
+data/
+
+# Segmentation debug images
+debug/
+
+.DS_Store

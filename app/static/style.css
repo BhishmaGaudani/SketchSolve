@@ -1,0 +1,118 @@
+:root {
+  --bg: #f6f5f1;
+  --panel: #ffffff;
+  --ink: #1d1d1f;
+  --muted: #6b6b70;
+  --border: #dcdad3;
+  --accent: #2f5bd3;
+  --accent-ink: #ffffff;
+  --warn-bg: #fff1c7;
+  --warn-border: #d9a300;
+  --error: #b3261e;
+  --chip: #eeede8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17171a;
+    --panel: #222226;
+    --ink: #ececef;
+    --muted: #a0a0a8;
+    --border: #3a3a40;
+    --accent: #7c9cff;
+    --accent-ink: #10121a;
+    --warn-bg: #4a3b0c;
+    --warn-border: #e0b43a;
+    --error: #ff8a80;
+    --chip: #2e2e33;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+h1 { margin: 0; font-size: 28px; letter-spacing: -0.01em; }
+.tagline { margin: 4px 0 20px; color: var(--muted); }
+code { font-size: 0.95em; }
+
+/* The drawing surface stays white in dark mode too: it's "paper". */
+.board {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.board canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+#draw { cursor: crosshair; touch-action: none; /* stop the page scrolling while drawing */ }
+#overlay { pointer-events: none; }
+
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin: 12px 0 20px;
+}
+button {
+  font: inherit;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--ink);
+  cursor: pointer;
+}
+button:hover { border-color: var(--muted); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+button:disabled { opacity: 0.6; cursor: default; }
+
+.result {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.symbols { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.chip {
+  min-width: 40px;
+  padding: 4px 10px;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 8px;
+  background: var(--chip);
+  border: 2px solid transparent;
+}
+.chip.low { background: var(--warn-bg); border-color: var(--warn-border); }
+.chip small { display: block; font-size: 11px; color: var(--muted); }
+
+.note { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+.answer { font-size: 28px; font-weight: 600; }
+.answer.error { font-size: 18px; font-weight: 500; color: var(--error); }
+
+footer { margin-top: 24px; font-size: 14px; color: var(--muted); }

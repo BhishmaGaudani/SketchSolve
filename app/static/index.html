@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SketchSolve</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>SketchSolve</h1>
+      <p class="tagline">Draw an expression like <code>3+5</code> or <code>2x+3=11</code>, then press Solve.</p>
+    </header>
+
+    <div class="board">
+      <canvas id="draw" width="1200" height="400" aria-label="Drawing area"></canvas>
+      <!-- Boxes around the symbols the server found are drawn on this layer. -->
+      <canvas id="overlay" width="1200" height="400" aria-hidden="true"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="undo" type="button">Undo</button>
+      <button id="clear" type="button">Clear</button>
+      <button id="solve" type="button" class="primary">Solve</button>
+    </div>
+
+    <section id="result" class="result" aria-live="polite" hidden>
+      <div class="label">Recognized</div>
+      <div id="symbols" class="symbols"></div>
+      <p id="low-note" class="note" hidden>Highlighted symbols are uncertain. If one is wrong, redraw it more clearly.</p>
+      <div class="label">Answer</div>
+      <div id="answer" class="answer"></div>
+    </section>
+
+    <footer>
+      Supported: digits 0–9, + − × ÷ =, and the variable x. Write × between two numbers (3×4); anywhere else it's read as x.
+    </footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

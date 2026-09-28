@@ -1,0 +1,10 @@
+# SketchSolve runtime + training. Tested with Python 3.12
+# (TensorFlow does not support Python 3.14 yet).
+tensorflow==2.21.0
+numpy==2.5.3
+opencv-contrib-python-headless==5.0.0.93  # contrib adds cv2.ximgproc.thinning
+pillow==12.3.0
+sympy==1.14.0
+flask==3.1.3
+scikit-learn==1.9.1
+matplotlib==3.11.2

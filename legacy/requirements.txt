@@ -1,0 +1,7 @@
+# Only for the legacy MNIST Streamlit app. Tested with Python 3.12.
+tensorflow==2.21.0
+numpy==2.5.3
+pillow==12.3.0
+scikit-learn==1.9.1
+streamlit==1.64.0
+streamlit-drawable-canvas==0.13.0
